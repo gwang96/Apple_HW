@@ -18,7 +18,7 @@ def minMoves(piece, start, end):
 				# Start and end lie on the same diagonal
 				return 1
 			else:
-				# Start and end don't lie on the same diagonal. Minimum path is always 2 in this case
+				# Start and end don't lie on the same diagonal. Minimum moves is always 2 in this case
 				return 2
 		else:
 			return -1
@@ -42,12 +42,14 @@ def minMoves(piece, start, end):
 			grid[pos[0][0]][pos[0][1]] = 1
 			moves = getMoves(pos)
 			if pos[0] == end:
+				# BFS finds shortest path
 				return pos[1]
 			for move in moves:
 				queue.insert(0,move)
 	return -1 
 
 if __name__ == "__main__":
+	#test
 	print(minMoves('KING', (0,0), (7,7)))
 	print(minMoves('BISHOP', (0,0), (2,2)))
 	print(minMoves('KNIGHT', (0,0), (4,5)))
